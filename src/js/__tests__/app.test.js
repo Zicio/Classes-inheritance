@@ -36,10 +36,10 @@ test('class Swordsman', () => {
 
 test('throws on name', () => {
   expect(() => {
-    const newClass = new classes.Swordsman('B', 'Swordsman');
+    const newClass = new classes.Swordsman('B');
   }).toThrowError(new Error('Неверный формат имени'));
   expect(() => {
-    const newClass = new classes.Swordsman('Bobanecvoer', 'Swordsman');
+    const newClass = new classes.Swordsman('Bobanecvoer');
   }).toThrowError(new Error('Неверный формат имени'));
 });
 
