@@ -1,9 +1,10 @@
+const defaultTypes = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
 export default class Character {
   constructor(name, type) {
     if (name.length < 2 || name.length > 10 || typeof name !== 'string') {
       throw new Error('Неверный формат имени');
     }
-    if (!['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'].includes(type)) {
+    if (!defaultTypes.includes(type)) {
       throw new Error('Неверный формат типа');
     }
     this.name = name;
@@ -53,9 +54,10 @@ export class Undead extends Character {
   }
 }
 
-export class Zombie extends Magician {
+export class Zombie extends Character {
   constructor(name) {
-    super(name);
-    this.type = 'Zombie';
+    super(name, 'Zombie');
+    this.attack = 10;
+    this.defence = 40;
   }
 }
